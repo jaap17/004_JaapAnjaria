@@ -1,14 +1,14 @@
 # Step 1: Import Libraries
-
-import numpy as np 
+import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 # Step 2: Load Data
         
-datasets = pd.read_csv('Data_for_Transformation.csv') 
+datasets = pd.read_csv('Exercise-CarData.csv') 
 print("\nData :\n",datasets)
-#print("\nData statistics\n",datasets.describe())
+
+print("\nData statistics\n",datasets.describe())
 
 # Step 3: Seprate Input and Output attributes
 
@@ -30,8 +30,8 @@ scaler = MinMaxScaler()
 X_scaled = scaler.fit_transform(X_new)
 print("\n\nScaled X : \n", X_scaled)
 
-# Step 5 : Perform standardization on age and salary
 
+# Step 5 : Perform standardization on age and salary
 std = StandardScaler()
 X_std = std.fit_transform(X_new)
 print("\n\nStandardized X : \n", X_std)
