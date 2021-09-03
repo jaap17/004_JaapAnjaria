@@ -23,3 +23,46 @@ with open("bbc-text-small.csv", 'r') as csvfile:
 print(len(sentences))
 print(sentences[48])
 print(labels[48])
+
+
+import pandas as pd
+
+dataset = pd.read_csv('bbc-text-small.csv')
+
+dataset.head()
+
+labels = dataset.category
+data = dataset.text
+
+tokenizer = Tokenizer()
+tokenizer.fit_on_texts(data)
+
+#print(tokenizer.word_counts)
+
+
+#Example 2
+sentences = [
+    'At DDU, we are Learning ML in semester 7 !!!',
+    'I love ml subject',
+    'Prof Brijesh Bhatt and prof. Hariom Pandya are faculties for the Ml subject',
+    'Do you think ML is amazing?'
+]
+
+##########################################
+
+# Try with words that the tokenizer wasn't fit to
+test_data = [
+    'i really love CC subject',
+    'Do you think BDA and IP are amazing subjects?'
+]
+
+###############################################
+
+
+#Observations: subject/subjects, ML/mL/ml, i/I  prof/Prof.  !!!
+tokenizer2 = Tokenizer()
+tokenizer2.fit_on_texts(sentences)
+
+tokenizer2.word_counts
+print(tokenizer2.texts_to_sequences(test_data))
+
