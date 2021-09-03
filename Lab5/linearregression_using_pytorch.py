@@ -82,4 +82,4 @@ Y_pred = model1.predict(X_Test)
 
 from sklearn.metrics import mean_squared_error
 print(mean_squared_error(Y_Test,Y_pred))
-Y_pred,Y_Test
+print(Y_pred,Y_Test)
